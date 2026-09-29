@@ -56,7 +56,8 @@ def delete_event(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     events = [e for e in events if e.id != event_id]
-    return jsonify({"message": f"Event {event_id} deleted"}), 200
+    # Return 204 No Content with no body
+    return "", 204
 
 # Optional: GET all events
 @app.route("/events", methods=["GET"])
